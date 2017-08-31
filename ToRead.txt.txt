@@ -1,0 +1,28 @@
+NeoApplication can be used to invoke and retrieve the webservice at
+
+https://api.nasa.gov/api.html#NeoWS
+
+The NeoApplicationInterface provides the methods to list and find the Near Earth objects using the date configured
+by the user by first calling the invokeNeoWebService method.
+
+The NeoApplication runs standalone and expects input of a date object in format yyyy-MM-dd.It's main method when run
+will run and output the total count of retrieved NearEarthObjects, then it will find the largest size object and print its details followed by finding the nearest to earth object and then printing its details.
+
+All the near earth objects are then later printed on console also.
+
+
+If the date specifid is in invalid format then an exception is thrown back to the user .
+
+Implementation details:
+
+Used two comparators on NearEarthObjectBean objects to sort and compare the near earth objects retrieved on basis of
+size and on basis on distance from earth in kms.
+
+Included a small junit class which checks for near earth objects retrievd for url=
+https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-08-29&end_date=2017-08-29&api_key=x036DohuwjzihfkqjvbY7OOpOa17Q08aUjTTpvAz.
+
+Interface included has the API_KEY value to authenticate the API calls on neo webservice.
+
+I have tried to avoid using mapper libraries to process json objects, however if needed those libraries can be used also.
+
+The size and distance property of each near earth object can also be in BigDecimal type instead of double to get more precise output in calculations.
